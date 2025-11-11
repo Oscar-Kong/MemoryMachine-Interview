@@ -1,0 +1,133 @@
+.controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.control-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, rgba(100, 150, 255, 0.9), rgba(150, 100, 255, 0.9));
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(100, 150, 255, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.control-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(100, 150, 255, 0.6);
+}
+
+.control-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.control-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.control-button.recording {
+  background: linear-gradient(135deg, rgba(255, 80, 80, 0.9), rgba(255, 120, 80, 0.9));
+  box-shadow: 0 4px 20px rgba(255, 80, 80, 0.4);
+}
+
+.control-button.recording:hover:not(:disabled) {
+  box-shadow: 0 6px 30px rgba(255, 80, 80, 0.6);
+}
+
+.button-icon {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.play-icon {
+  margin-left: 2px; /* Slight offset for visual centering */
+}
+
+.stop-icon {
+  font-size: 12px;
+}
+
+.button-text {
+  letter-spacing: 0.5px;
+}
+
+.recording-indicator {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+}
+
+.pulse-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.processing-indicator {
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .controls {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .control-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+

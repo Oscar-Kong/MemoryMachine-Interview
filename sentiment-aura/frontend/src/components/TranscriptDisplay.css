@@ -1,0 +1,215 @@
+.transcript-display {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 900px;
+  min-width: 400px;
+  max-height: 60vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  padding: 32px 40px;
+  z-index: 100;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 20px var(--emotion-glow);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.transcript-display:hover {
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.5),
+    0 0 30px var(--emotion-glow);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.transcript-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.transcript-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--emotion-primary);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px var(--emotion-glow);
+  position: relative;
+  padding-left: 12px;
+}
+
+.transcript-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 16px;
+  background: var(--emotion-primary);
+  box-shadow: 0 0 8px var(--emotion-glow);
+  border-radius: 2px;
+}
+
+.transcript-emotion {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--emotion-secondary);
+  text-transform: capitalize;
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid var(--emotion-primary);
+  box-shadow: 0 0 12px var(--emotion-glow);
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.transcript-emotion:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.transcript-content {
+  font-size: 24px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  max-height: calc(60vh - 120px);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  word-wrap: break-word;
+  font-weight: 400;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  padding-right: 8px;
+}
+
+/* Highlight interim results (text in brackets) */
+.transcript-interim {
+  color: var(--emotion-secondary);
+  opacity: 0.5; /* Make more subtle */
+  font-size: 0.95em; /* Slightly smaller */
+  font-style: italic;
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+.transcript-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.transcript-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.transcript-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--emotion-primary), var(--emotion-secondary));
+  border-radius: 4px;
+  box-shadow: 0 0 8px var(--emotion-glow);
+}
+
+.transcript-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--emotion-secondary), var(--emotion-primary));
+  box-shadow: 0 0 12px var(--emotion-glow);
+}
+
+.transcript-placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  padding: 40px 20px;
+  letter-spacing: 1px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .transcript-display {
+    width: 85%;
+    max-width: 800px;
+    padding: 28px 32px;
+  }
+  
+  .transcript-content {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .transcript-display {
+    width: 90%;
+    min-width: 320px;
+    max-height: 50vh;
+    padding: 24px 28px;
+    border-radius: 20px;
+  }
+  
+  .transcript-content {
+    font-size: 18px;
+    line-height: 1.6;
+    max-height: calc(50vh - 100px);
+  }
+  
+  .transcript-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+  
+  .transcript-emotion {
+    font-size: 11px;
+    padding: 4px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .transcript-display {
+    width: 95%;
+    padding: 20px 24px;
+    max-height: 45vh;
+  }
+  
+  .transcript-content {
+    font-size: 16px;
+    max-height: calc(45vh - 90px);
+  }
+  
+  .transcript-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* Animation for new text */
+.transcript-content {
+  animation: textFadeIn 0.3s ease-out;
+}
+
+@keyframes textFadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}

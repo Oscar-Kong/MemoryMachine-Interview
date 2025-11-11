@@ -1,0 +1,43 @@
+.sentiment-indicator {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    0 0 12px var(--sentiment-color);
+  transition: all 0.3s ease;
+}
+
+.sentiment-indicator:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 20px var(--sentiment-color);
+}
+
+.sentiment-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--sentiment-color);
+  text-shadow: 0 0 15px var(--sentiment-color);
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .sentiment-indicator {
+    bottom: 10px;
+    left: 10px;
+    padding: 10px 16px;
+  }
+
+  .sentiment-number {
+    font-size: 24px;
+  }
+}
+
