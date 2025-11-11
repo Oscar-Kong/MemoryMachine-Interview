@@ -196,25 +196,7 @@ sentiment-aura/
    ├─ .env.example
    └─ .env               # (gitignored)
 ```
+My demo video link:
 
-## Troubleshooting
-
-### Microphone not working
-- Check browser permissions
-- Ensure HTTPS or localhost (required for microphone access)
-- Try a different browser
-
-### Backend connection errors
-- Verify backend is running on port 8000
-- Check `REACT_APP_BACKEND_URL` in frontend `.env`
-- Ensure CORS is properly configured
-
-### API errors
-- Verify API keys are correct in `.env` files
-- Check API quotas and credits
-- Review browser console and backend logs for detailed errors
-
-## License
-
-MIT
+https://drive.google.com/drive/folders/1kjNuxyXL6sS5OJqkD6TD89Fbp90DuQLl?usp=drive_link
 
